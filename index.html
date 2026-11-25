@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FreelanceFlow — Freelancer Team & Client Management System demo">
+<title>FreelanceFlow | Team & Client Management</title>
+<style>
+:root{--bg:#f5f6fc;--panel:#fff;--ink:#202344;--muted:#858ba6;--line:#e9eaf2;--purple:#7157f5;--blue:#4789ef;--green:#24a77b;--orange:#eaa34a;--red:#e45e76;--shadow:0 12px 35px rgba(34,39,83,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.app{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{background:#202344;color:#fff;padding:25px 16px;display:flex;flex-direction:column;gap:24px}.brand{font-size:23px;font-weight:850;letter-spacing:-.8px;padding:0 12px}.brand span{color:#9f91ff}.tagline{color:#aeb2cf;font-size:11px;padding:0 12px;margin-top:-21px}.nav-label{font-size:10px;color:#8f95b9;font-weight:800;letter-spacing:1.4px;padding:0 12px;margin-bottom:7px}.nav{display:grid;gap:5px}.nav button{background:transparent;color:#c8cbe0;text-align:left;padding:11px 13px;border-radius:10px;display:flex;gap:12px;align-items:center}.nav button:hover,.nav button.active{background:#39365f;color:white}.nav .ico{width:19px;text-align:center;font-size:16px}.side-bottom{margin-top:auto;border-top:1px solid #414466;padding:17px 12px;color:#b9bdd5;font-size:11px}.main{min-width:0}.topbar{height:76px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;z-index:5}.crumb{font-weight:750;font-size:15px}.top-right{display:flex;align-items:center;gap:14px}.demo-pill{background:#f0edff;color:var(--purple);padding:7px 11px;border-radius:30px;font-size:11px;font-weight:800}.avatar{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:#e7e2ff;color:#5d48d8;font-weight:800}.content{padding:30px 34px;max-width:1500px;margin:auto}.welcome{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:25px}.welcome h1{font-size:27px;letter-spacing:-.8px;margin:0 0 5px}.welcome p{margin:0;color:var(--muted)}.btn{background:var(--purple);color:white;padding:10px 15px;border-radius:9px;font-weight:750;box-shadow:0 5px 12px #7157f52c}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}.btn.secondary{background:#f0edff;color:#5e49df;box-shadow:none}.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}.btn.danger{background:#fff0f2;color:var(--red);box-shadow:none}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.stat{padding:19px}.stat-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:650}.stat-icon{width:33px;height:33px;border-radius:10px;display:grid;place-items:center;background:#f0edff;color:var(--purple);font-size:16px}.stat-value{font-size:27px;font-weight:850;margin:10px 0 2px;letter-spacing:-.7px}.stat-note{font-size:11px;color:var(--muted)}.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}.card{padding:20px;margin-bottom:18px}.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px;gap:12px}.card h3{margin:0;font-size:15px}.subtle{color:var(--muted);font-size:11px}.project-row{padding:13px 0;border-bottom:1px solid var(--line)}.project-row:last-child{border:0}.project-meta{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px}.project-name{font-weight:750}.progress{height:7px;border-radius:20px;background:#eff0f6;overflow:hidden}.progress span{display:block;height:100%;border-radius:20px;background:linear-gradient(90deg,var(--purple),#9d8cff)}.activity{display:grid;gap:15px}.activity-item{display:flex;gap:11px;align-items:flex-start}.dot{width:9px;height:9px;border-radius:50%;background:var(--purple);margin-top:5px;flex:none}.activity-item b{display:block;font-size:12px}.activity-item small{color:var(--muted)}.view{display:none}.view.active{display:block}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}.toolbar h2{margin:0;font-size:21px}.tools{display:flex;gap:9px;flex-wrap:wrap}.search{border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px;min-width:220px;outline:none}.search:focus,input:focus,select:focus,textarea:focus{border-color:#a89cff;box-shadow:0 0 0 3px #7157f51a;outline:none}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:650px}.table th{text-align:left;color:var(--muted);font-size:10px;letter-spacing:.7px;text-transform:uppercase;padding:12px;border-bottom:1px solid var(--line)}.table td{padding:14px 12px;border-bottom:1px solid var(--line);font-size:12px}.table tr:last-child td{border:0}.strong{font-weight:750}.badge{display:inline-block;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:800;background:#f0edff;color:#6751e8}.badge.green{background:#e8f7f1;color:#208b69}.badge.orange{background:#fff4e5;color:#b87922}.badge.red{background:#fff0f2;color:#d64c67}.kanban{display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:12px;overflow-x:auto;padding-bottom:8px}.lane{background:#eceef6;border-radius:13px;padding:12px;min-height:350px}.lane-title{font-size:10px;font-weight:850;letter-spacing:.8px;color:#777e9c;display:flex;justify-content:space-between;margin:3px 2px 12px}.task{background:white;padding:12px;border-radius:10px;margin-bottom:9px;box-shadow:0 4px 12px #22264a0b;border:1px solid #e9eaf2}.task strong{font-size:12px;display:block;margin-bottom:8px}.task small{color:var(--muted);font-size:10px}.task-actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px}.task-actions select{max-width:112px;font-size:10px;padding:5px;border:1px solid var(--line);border-radius:7px}.empty{padding:30px;text-align:center;color:var(--muted)}.report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.report-box{padding:18px;background:#fafaff;border-radius:12px}.report-box b{font-size:22px;display:block}.modal-backdrop{display:none;position:fixed;inset:0;background:#15172d80;z-index:20;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{background:#fff;width:min(520px,100%);border-radius:17px;padding:23px;box-shadow:0 25px 80px #11152b55;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modal h3{margin:0;font-size:18px}.close{background:#f2f3f8;border-radius:8px;width:31px;height:31px;font-size:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:5px;margin-bottom:12px}.field.full{grid-column:1/-1}.field label{font-size:11px;font-weight:750;color:#656b88}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;background:white;color:var(--ink)}.field textarea{min-height:75px;resize:vertical}.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.toast{position:fixed;right:22px;bottom:22px;background:#202344;color:white;padding:12px 17px;border-radius:10px;box-shadow:var(--shadow);z-index:30;display:none}.mobile-menu{display:none;background:transparent;font-size:21px;color:var(--ink)}.disclaimer{background:#fff8e9;color:#94651f;padding:10px 13px;border-radius:10px;font-size:11px;margin-top:15px}
+@media(max-width:1000px){.app{grid-template-columns:215px 1fr}.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.content{padding:24px}.topbar{padding:0 24px}}
+@media(max-width:700px){.app{display:block}.sidebar{position:fixed;z-index:15;inset:0 auto 0 0;width:260px;transform:translateX(-105%);transition:.25s;box-shadow:20px 0 50px #17193633}.sidebar.open{transform:translateX(0)}.mobile-menu{display:block}.topbar{height:65px;padding:0 16px}.content{padding:21px 15px}.welcome h1{font-size:22px}.welcome{align-items:center}.welcome .btn{padding:9px 10px;font-size:11px}.stats{gap:10px}.stat{padding:14px}.stat-value{font-size:22px}.stat-note{font-size:10px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.report-grid{grid-template-columns:1fr}.search{min-width:100%}.toolbar{align-items:stretch}.tools{width:100%}.tools .search{flex:1}.kanban{grid-template-columns:repeat(5,210px)}.demo-pill{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">Freelance<span>Flow</span></div><div class="tagline">TEAM & CLIENT WORKSPACE</div>
+  <div><div class="nav-label">WORKSPACE</div><nav class="nav" id="nav">
+    <button class="active" data-view="dashboard"><span class="ico">▦</span>Dashboard</button>
+    <button data-view="clients"><span class="ico">♙</span>Clients</button>
+    <button data-view="projects"><span class="ico">▣</span>Projects</button>
+    <button data-view="tasks"><span class="ico">☷</span>Task Board</button>
+    <button data-view="team"><span class="ico">♧</span>Team</button>
+    <button data-view="invoices"><span class="ico">▤</span>Invoices</button>
+    <button data-view="reports"><span class="ico">▥</span>Reports</button>
+  </nav></div>
+  <div class="side-bottom">FreelanceFlow Demo v1.0<br>Local browser storage · Sample data</div>
+</aside>
+<main class="main">
+<header class="topbar"><div style="display:flex;align-items:center;gap:13px"><button class="mobile-menu" id="menuBtn">☰</button><div class="crumb" id="crumb">Dashboard</div></div><div class="top-right"><span class="demo-pill">ACADEMIC DEMO</span><div class="avatar">AR</div></div></header>
+<div class="content">
+<section class="view active" id="dashboard">
+  <div class="welcome"><div><h1>Good morning, Atique 👋</h1><p>Here’s what’s happening across your freelance workspace.</p></div><button class="btn" onclick="openModal('project')">＋ New project</button></div>
+  <div class="stats" id="stats"></div>
+  <div class="grid2"><div class="card"><div class="card-head"><h3>Project progress</h3><span class="subtle">Live from demo data</span></div><div id="dashProjects"></div></div>
+  <div class="card"><div class="card-head"><h3>Recent activity</h3><span class="subtle">Latest updates</span></div><div class="activity" id="activity"></div></div></div>
+  <div class="disclaimer">Demo mode: information is saved in this browser only. Use the Reset Demo option in Reports to restore sample records.</div>
+</section>
+<section class="view" id="clients">
+ <div class="toolbar"><h2>Clients</h2><div class="tools"><input class="search" id="clientSearch" placeholder="Search clients…"><button class="btn" onclick="openModal('client')">＋ Add client</button></div></div>
+ <div class="card table-wrap"><table class="table"><thead><tr><th>Client</th><th>Email</th><th>Company</th><th>Projects</th><th>Action</th></tr></thead><tbody id="clientRows"></tbody></table></div>
+</section>
+<section class="view" id="projects">
+ <div class="toolbar"><h2>Projects</h2><div class="tools"><input class="search" id="projectSearch" placeholder="Search projects…"><button class="btn" onclick="openModal('project')">＋ Add project</button></div></div>
+ <div class="card table-wrap"><table class="table"><thead><tr><th>Project</th><th>Client</th><th>Deadline</th><th>Budget</th><th>Progress</th><th>Status</th></tr></thead><tbody id="projectRows"></tbody></table></div>
+</section>
+<section class="view" id="tasks">
+ <div class="toolbar"><div><h2>Task board</h2><div class="subtle">Move tasks between stages using the status dropdown.</div></div><button class="btn" onclick="openModal('task')">＋ Add task</button></div>
+ <div class="kanban" id="kanban"></div>
+</section>
+<section class="view" id="team">
+ <div class="toolbar"><h2>Team members</h2><button class="btn" onclick="openModal('member')">＋ Add member</button></div>
+ <div class="card table-wrap"><table class="table"><thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Assigned tasks</th></tr></thead><tbody id="teamRows"></tbody></table></div>
+</section>
+<section class="view" id="invoices">
+ <div class="toolbar"><h2>Invoices & payments</h2><button class="btn" onclick="openModal('invoice')">＋ Add invoice</button></div>
+ <div class="stats" id="invoiceStats"></div>
+ <div class="card table-wrap"><table class="table"><thead><tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Due date</th><th>Status</th><th>Action</th></tr></thead><tbody id="invoiceRows"></tbody></table></div>
+</section>
+<section class="view" id="reports">
+ <div class="toolbar"><h2>Reports & analytics</h2><button class="btn ghost" onclick="exportData()">↓ Export JSON backup</button></div>
+ <div class="card"><div class="card-head"><h3>Workspace summary</h3><span class="subtle">Calculated from current records</span></div><div class="report-grid" id="reportGrid"></div></div>
+ <div class="card"><h3>Demo data controls</h3><p class="subtle">Download a backup or restore the original sample workspace.</p><button class="btn danger" onclick="resetDemo()">Reset demo data</button></div>
+</section>
+</div>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-head"><h3 id="modalTitle">Add record</h3><button class="close" onclick="closeModal()">×</button></div><form id="recordForm"><div id="formFields" class="form-grid"></div><div class="form-actions"><button type="button" class="btn ghost" onclick="closeModal()">Cancel</button><button class="btn" type="submit">Save record</button></div></form></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const initial = {
+ clients:[
+  {id:1,name:"Ali Traders",email:"ali@alitraders.example",company:"Ali Traders"},
+  {id:2,name:"Sara Malik",email:"sara@brandstudio.example",company:"Brand Studio"},
+  {id:3,name:"Hassan Raza",email:"hassan@techworks.example",company:"TechWorks"}
+ ],
+ members:[
+  {id:1,name:"Sarah Khan",role:"Project Manager",email:"sarah@freelanceflow.demo"},
+  {id:2,name:"Ahmed Rauf",role:"Frontend Developer",email:"ahmed@freelanceflow.demo"},
+  {id:3,name:"Mina Ali",role:"UI/UX Designer",email:"mina@freelanceflow.demo"},
+  {id:4,name:"Usman Tariq",role:"Backend Developer",email:"usman@freelanceflow.demo"}
+ ],
+ projects:[
+  {id:1,name:"E-commerce Website",clientId:1,deadline:"2026-12-18",budget:30000,progress:60,status:"In Progress"},
+  {id:2,name:"Brand Identity Design",clientId:2,deadline:"2026-12-08",budget:18000,progress:85,status:"In Progress"},
+  {id:3,name:"Company Portal",clientId:3,deadline:"2026-12-28",budget:45000,progress:30,status:"Planning"}
+ ],
+ tasks:[
+  {id:1,title:"Homepage UI design",projectId:1,assignee:"Mina Ali",status:"In Progress",due:"2026-11-29"},
+  {id:2,title:"Product API development",projectId:1,assignee:"Usman Tariq",status:"To Do",due:"2026-12-04"},
+  {id:3,title:"Responsive frontend",projectId:1,assignee:"Ahmed Rauf",status:"Testing",due:"2026-12-06"},
+  {id:4,title:"Client requirements",projectId:1,assignee:"Sarah Khan",status:"Done",due:"2026-11-20"},
+  {id:5,title:"Logo concepts",projectId:2,assignee:"Mina Ali",status:"Done",due:"2026-11-25"},
+  {id:6,title:"Portal database schema",projectId:3,assignee:"Usman Tariq",status:"Backlog",due:"2026-12-10"}
+ ],
+ invoices:[
+  {id:1,number:"FF-104",clientId:1,amount:30000,paid:15000,due:"2026-12-10"},
+  {id:2,number:"FF-105",clientId:2,amount:18000,paid:18000,due:"2026-11-28"}
+ ],
+ activity:["Project E-commerce Website created","Homepage UI design moved to In Progress","Invoice FF-105 marked fully paid"]
+};
+let db=load();
+function load(){try{return JSON.parse(localStorage.getItem("freelanceflow_db"))||structuredClone(initial)}catch(e){return JSON.parse(JSON.stringify(initial))}}
+function save(){localStorage.setItem("freelanceflow_db",JSON.stringify(db));render()}
+function money(n){return "Rs. "+Number(n||0).toLocaleString("en-PK")}
+function clientName(id){return db.clients.find(x=>x.id==id)?.name||"Unknown client"}
+function projectName(id){return db.projects.find(x=>x.id==id)?.name||"General"}
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function render(){
+ const active=db.projects.filter(p=>p.status!=="Completed").length, done=db.tasks.filter(t=>t.status==="Done").length;
+ const paid=db.invoices.reduce((a,i)=>a+Number(i.paid),0), due=db.invoices.reduce((a,i)=>a+Math.max(0,i.amount-i.paid),0);
+ document.getElementById("stats").innerHTML=[
+  ["Active projects",active,"Projects currently underway","▣"],["Team members",db.members.length,"People in your workspace","♧"],["Tasks completed",`${done}/${db.tasks.length}`,"Completed task records","✓"],["Outstanding invoices",money(due),"Amount awaiting payment","▤"]
+ ].map((x,i)=>`<div class="stat"><div class="stat-top">${x[0]}<span class="stat-icon">${x[3]}</span></div><div class="stat-value">${x[1]}</div><div class="stat-note">${x[2]}</div></div>`).join("");
+ document.getElementById("dashProjects").innerHTML=db.projects.slice(0,5).map(p=>`<div class="project-row"><div class="project-meta"><span class="project-name">${esc(p.name)}</span><span class="subtle">${p.progress}%</span></div><div class="progress"><span style="width:${Math.min(100,p.progress)}%"></span></div><div class="subtle" style="margin-top:6px">${esc(clientName(p.clientId))} · Due ${esc(p.deadline)}</div></div>`).join("")||'<div class="empty">No projects yet. Add your first project.</div>';
+ document.getElementById("activity").innerHTML=db.activity.slice(0,6).map(a=>`<div class="activity-item"><span class="dot"></span><div><b>${esc(a)}</b><small>Workspace update</small></div></div>`).join("");
+ document.getElementById("clientRows").innerHTML=db.clients.map(c=>`<tr><td class="strong">${esc(c.name)}</td><td>${esc(c.email)}</td><td>${esc(c.company)}</td><td>${db.projects.filter(p=>p.clientId==c.id).length}</td><td><button class="btn ghost" onclick="removeRecord('clients',${c.id})">Remove</button></td></tr>`).join("")||emptyRow(5,"No clients yet");
+ document.getElementById("projectRows").innerHTML=db.projects.map(p=>`<tr><td class="strong">${esc(p.name)}</td><td>${esc(clientName(p.clientId))}</td><td>${esc(p.deadline)}</td><td>${money(p.budget)}</td><td><div style="min-width:100px"><div class="progress"><span style="width:${p.progress}%"></span></div><small>${p.progress}%</small></div></td><td><span class="badge ${p.status==="Completed"?"green":p.status==="Planning"?"orange":""}">${esc(p.status)}</span></td></tr>`).join("")||emptyRow(6,"No projects yet");
+ const stages=["Backlog","To Do","In Progress","Testing","Done"];
+ document.getElementById("kanban").innerHTML=stages.map(st=>`<div class="lane"><div class="lane-title">${st.toUpperCase()} <span>${db.tasks.filter(t=>t.status===st).length}</span></div>${db.tasks.filter(t=>t.status===st).map(t=>`<div class="task"><strong>${esc(t.title)}</strong><small>${esc(projectName(t.projectId))}</small><div class="task-actions"><small>♙ ${esc(t.assignee)}</small><select aria-label="Change task status" onchange="moveTask(${t.id},this.value)">${stages.map(v=>`<option ${v===st?"selected":""}>${v}</option>`).join("")}</select></div><small>Due: ${esc(t.due)}</small></div>`).join("")||'<div class="subtle">No tasks</div>'}</div>`).join("");
+ document.getElementById("teamRows").innerHTML=db.members.map(m=>`<tr><td class="strong">${esc(m.name)}</td><td><span class="badge">${esc(m.role)}</span></td><td>${esc(m.email)}</td><td>${db.tasks.filter(t=>t.assignee===m.name).length}</td></tr>`).join("")||emptyRow(4,"No team members yet");
+ document.getElementById("invoiceStats").innerHTML=[["Total invoiced",money(db.invoices.reduce((a,i)=>a+i.amount,0))],["Payments received",money(paid)],["Outstanding",money(due)]].map(x=>`<div class="stat"><div class="stat-top">${x[0]}</div><div class="stat-value">${x[1]}</div></div>`).join("");
+ document.getElementById("invoiceRows").innerHTML=db.invoices.map(i=>{let rem=i.amount-i.paid,st=rem<=0?"Paid":i.paid>0?"Partially Paid":"Unpaid";return `<tr><td class="strong">${esc(i.number)}</td><td>${esc(clientName(i.clientId))}</td><td>${money(i.amount)}</td><td>${esc(i.due)}</td><td><span class="badge ${st==="Paid"?"green":st==="Unpaid"?"red":"orange"}">${st}</span></td><td>${rem>0?`<button class="btn secondary" onclick="markPaid(${i.id})">Mark paid</button>`:"—"}</td></tr>`}).join("")||emptyRow(6,"No invoices yet");
+ document.getElementById("reportGrid").innerHTML=[["Clients",db.clients.length],["Projects",db.projects.length],["Tasks",db.tasks.length],["Completed tasks",done],["Team members",db.members.length],["Payments received",money(paid)]].map(x=>`<div class="report-box"><span class="subtle">${x[0]}</span><b>${x[1]}</b></div>`).join("");
+}
+function emptyRow(n,msg){return `<tr><td colspan="${n}" class="empty">${msg}</td></tr>`}
+function moveTask(id,status){let t=db.tasks.find(x=>x.id===id);if(t){t.status=status;db.activity.unshift(`${t.title} moved to ${status}`);save();toast("Task status updated")}}
+function markPaid(id){let i=db.invoices.find(x=>x.id===id);if(i){i.paid=i.amount;db.activity.unshift(`Invoice ${i.number} marked fully paid`);save();toast("Invoice payment updated")}}
+function removeRecord(type,id){if(!confirm("Remove this record?"))return;db[type]=db[type].filter(x=>x.id!==id);save();toast("Record removed")}
+const schemas={
+ client:{title:"Add client",fields:[["name","Client name","text",1],["email","Email address","email",1],["company","Company","text",1]]},
+ project:{title:"Create project",fields:[["name","Project name","text",1],["clientId","Client","client",1],["deadline","Deadline","date",1],["budget","Budget (PKR)","number",1],["progress","Progress (%)","number",1],["status","Status","projectStatus",1]]},
+ task:{title:"Add task",fields:[["title","Task title","text",1],["projectId","Project","project",1],["assignee","Assign to","member",1],["due","Due date","date",1],["status","Stage","taskStatus",1]]},
+ member:{title:"Add team member",fields:[["name","Full name","text",1],["role","Role","text",1],["email","Email address","email",1]]},
+ invoice:{title:"Add invoice",fields:[["number","Invoice number","text",1],["clientId","Client","client",1],["amount","Invoice amount (PKR)","number",1],["paid","Amount received (PKR)","number",1],["due","Due date","date",1]]}
+};
+let currentType=null;
+function openModal(type){currentType=type;let s=schemas[type];document.getElementById("modalTitle").textContent=s.title;document.getElementById("formFields").innerHTML=s.fields.map(([name,label,kind,req])=>{let options="",input="";
+ if(kind==="client")options=db.clients.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join("");
+ if(kind==="project")options=db.projects.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("");
+ if(kind==="member")options=db.members.map(m=>`<option>${esc(m.name)}</option>`).join("");
+ if(kind==="projectStatus")options=["Planning","In Progress","Completed","On Hold"].map(x=>`<option>${x}</option>`).join("");
+ if(kind==="taskStatus")options=["Backlog","To Do","In Progress","Testing","Done"].map(x=>`<option>${x}</option>`).join("");
+ if(["client","project","member","projectStatus","taskStatus"].includes(kind))input=`<select name="${name}" required>${options}</select>`;
+ else input=`<input name="${name}" type="${kind}" ${req?"required":""} ${kind==="number"?'min="0"':''} ${name==="progress"?'max="100"':''} ${name==="paid"?'value="0"':''}>`;
+ return `<div class="field ${s.fields.length%2&&name===s.fields.at(-1)[0]?"full":""}"><label>${label}</label>${input}</div>`}).join("");
+ document.getElementById("modalBackdrop").classList.add("open")}
+function closeModal(){document.getElementById("modalBackdrop").classList.remove("open")}
+document.getElementById("recordForm").addEventListener("submit",e=>{e.preventDefault();let data=Object.fromEntries(new FormData(e.target).entries());let type=currentType;for(let k in data){if(["clientId","projectId","budget","progress","amount","paid"].includes(k))data[k]=Number(data[k])}
+ data.id=Math.max(0,...db[type==="client"?"clients":type==="project"?"projects":type==="task"?"tasks":type==="member"?"members":"invoices"].map(x=>x.id))+1;
+ let target=type==="client"?"clients":type==="project"?"projects":type==="task"?"tasks":type==="member"?"members":"invoices";
+ db[target].push(data);db.activity.unshift(`${schemas[type].title.replace("Add ","").replace("Create ","")} saved: ${data.name||data.title||data.number||""}`);save();closeModal();e.target.reset();toast("Record saved successfully")});
+function showView(id){document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===id));document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===id));document.getElementById("crumb").textContent=document.querySelector(`#nav [data-view="${id}"]`).textContent.trim();document.getElementById("sidebar").classList.remove("open")}
+document.getElementById("nav").addEventListener("click",e=>{let b=e.target.closest("button[data-view]");if(b)showView(b.dataset.view)});
+document.getElementById("menuBtn").onclick=()=>document.getElementById("sidebar").classList.toggle("open");
+document.getElementById("clientSearch").addEventListener("input",e=>{let q=e.target.value.toLowerCase();document.querySelectorAll("#clientRows tr").forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?"":"none")});
+document.getElementById("projectSearch").addEventListener("input",e=>{let q=e.target.value.toLowerCase();document.querySelectorAll("#projectRows tr").forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?"":"none")});
+function exportData(){let blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="freelanceflow-backup.json";a.click();URL.revokeObjectURL(a.href);toast("Backup downloaded")}
+function resetDemo(){if(!confirm("Restore original sample data? Your current browser demo data will be replaced."))return;db=JSON.parse(JSON.stringify(initial));save();toast("Demo data restored")}
+render();
+</script>
+</body>
+</html>
